@@ -3,13 +3,12 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import rain from 'rainy-window'
+import { onMounted } from "vue";
+import rain from "rainy-window";
 
 onMounted(() => {
-rain('myImage', 'http://pic.zhangshichun.top/pic/20220606-02.jpg')
-})
-
+  rain("myImage", "http://pic.zhangshichun.top/pic/20220606-02.jpg");
+});
 </script>
 
 <style>

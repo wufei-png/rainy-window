@@ -12,7 +12,7 @@ class RainyCanvas {
   keeper: DropKeeper;
   timeKeeper: TimeKeeper = new TimeKeeper()
 
-  constructor(public targetEl: HTMLElement, public url: string, private options: RainyOptions = { baseZIndex : 10, minification: 0.2, blurLength: 4, maxDropRadian : 10 }) {
+  constructor(public targetEl: HTMLElement, public url: string, private options: RainyOptions = { baseZIndex: 10, minification: 0.2, blurLength: 4, maxDropRadian: 10 }) {
     this.prepare()
   }
 
@@ -31,7 +31,6 @@ class RainyCanvas {
       const dropCount = getRandomInt(1, 3);
       this.keeper.addDrop(dropCount)
     })
-    
     this.timeKeeper.addRandomInterval(1000, 2000, () => {
       this.keeper.setSpeedForDrops()
     })
@@ -99,11 +98,12 @@ class RainyCanvas {
   createReflection() {
     const canvasEl = document.createElement('canvas')
     const ctx = getCtx(canvasEl)
+    console.info("this.backgroundCanvas.width, this.backgroundCanvas.height, this.options.minification", this.backgroundCanvas.width, this.backgroundCanvas.height, this.options.minification)
     canvasEl.width = this.backgroundCanvas.width * this.options.minification
     canvasEl.height = this.backgroundCanvas.height * this.options.minification
-    ctx.translate(canvasEl.width/2, canvasEl.height/2)
+    ctx.translate(canvasEl.width / 2, canvasEl.height / 2)
     ctx.rotate(Math.PI)
-    ctx.drawImage(this.img, -canvasEl.width/2, -canvasEl.height/2, canvasEl.width, canvasEl.height)
+    ctx.drawImage(this.img, -canvasEl.width / 2, -canvasEl.height / 2, canvasEl.width, canvasEl.height)
     return canvasEl;
   }
 
